@@ -11,12 +11,7 @@ jobs:
           distribution: temurin
       - uses: gradle/actions/setup-gradle@v3
       - name: Build APK
-        run: |
-          find. -name "settings.gradle"
-          ROOT=$(find. -name "settings.gradle" | head -n 1 | xargs dirname)
-          echo "Build at $ROOT"
-          cd $ROOT
-          gradle assembleDebug
+        run: gradle assembleDebug
       - uses: actions/upload-artifact@v4
         with:
           name: ChaosCube-26.2-APK
